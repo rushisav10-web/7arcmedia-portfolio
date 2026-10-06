@@ -1,0 +1,140 @@
+.why-section {
+  position: relative;
+  padding: 150px 7vw;
+  background: #08080b;
+  overflow: hidden;
+}
+
+.why-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.why-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.why-header h2 {
+  margin-top: 20px;
+  max-width: 650px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  font-weight: 600;
+}
+
+.why-header > p {
+  max-width: 330px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.why-card {
+  position: relative;
+  min-height: 245px;
+  padding: 30px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition:
+    background 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.why-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background: #8b5cf6;
+  transition: height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.why-card:hover {
+  background: rgba(255, 255, 255, 0.025);
+  transform: translateY(-4px);
+}
+
+.why-card:hover::before {
+  height: 100%;
+}
+
+.why-number {
+  display: block;
+  margin-bottom: 55px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(139, 92, 246, 0.9);
+}
+
+.why-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(21px, 2vw, 27px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+.why-card p {
+  max-width: 480px;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+@media (max-width: 900px) {
+  .why-section {
+    padding: 120px 6vw;
+  }
+
+  .why-header {
+    display: block;
+    margin-bottom: 60px;
+  }
+
+  .why-header > p {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 650px) {
+  .why-section {
+    padding: 95px 5vw;
+  }
+
+  .why-header h2 {
+    font-size: clamp(45px, 12vw, 65px);
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-card {
+    min-height: auto;
+    padding: 26px;
+  }
+
+  .why-number {
+    margin-bottom: 35px;
+  }
+}

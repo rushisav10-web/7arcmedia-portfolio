@@ -1,0 +1,158 @@
+.what-section {
+  position: relative;
+  padding: 150px 7vw;
+  background: #050507;
+  overflow: hidden;
+}
+
+.what-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.what-top {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.what-heading {
+  position: sticky;
+  top: 120px;
+}
+
+.what-heading h2 {
+  margin-top: 22px;
+  max-width: 500px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  font-weight: 600;
+}
+
+.what-copy {
+  padding-top: 12px;
+}
+
+.what-copy > p {
+  max-width: 720px;
+  font-size: clamp(22px, 2.4vw, 34px);
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.what-copy > p strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.what-line {
+  width: 100%;
+  height: 1px;
+  margin-top: 70px;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.what-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.what-item {
+  min-height: 190px;
+  padding: 32px;
+  background: #050507;
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.what-item:hover {
+  background: #09090d;
+  transform: translateY(-4px);
+}
+
+.what-item-number {
+  display: block;
+  margin-bottom: 55px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(139, 92, 246, 0.9);
+}
+
+.what-item h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.what-item p {
+  max-width: 280px;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+@media (max-width: 900px) {
+  .what-section {
+    padding: 120px 6vw;
+  }
+
+  .what-top {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .what-heading {
+    position: static;
+  }
+
+  .what-heading h2 {
+    max-width: 600px;
+  }
+
+  .what-copy {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .what-section {
+    padding: 95px 5vw;
+  }
+
+  .what-heading h2 {
+    font-size: clamp(45px, 12vw, 65px);
+  }
+
+  .what-copy > p {
+    font-size: 20px;
+  }
+
+  .what-line {
+    margin-top: 50px;
+  }
+
+  .what-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .what-item {
+    min-height: auto;
+    padding: 26px;
+  }
+
+  .what-item-number {
+    margin-bottom: 35px;
+  }
+}
