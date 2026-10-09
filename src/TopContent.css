@@ -1,0 +1,365 @@
+.top-content-section {
+  position: relative;
+  padding: 150px 0;
+  overflow: hidden;
+}
+
+.top-content-inner {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.top-content-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+
+.top-content-header h2 {
+  margin: 22px 0 0;
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.top-content-header p {
+  max-width: 430px;
+  margin: 0 0 5px auto;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.top-content-showcase {
+  width: 100%;
+}
+
+.top-content-stage {
+  position: relative;
+  width: 100%;
+  min-height: 760px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(112, 55, 255, 0.12),
+      transparent 38%
+    ),
+    rgba(255, 255, 255, 0.018);
+  overflow: hidden;
+}
+
+.top-content-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 70px 70px;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65),
+    transparent 75%
+  );
+}
+
+.top-content-video-wrap {
+  position: relative;
+  z-index: 2;
+  width: min(390px, 68%);
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #080808;
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.55),
+    0 0 70px rgba(105, 45, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  touch-action: pan-y;
+}
+
+.top-content-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #080808;
+}
+
+.top-content-overlay {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82),
+    rgba(0, 0, 0, 0.35),
+    transparent
+  );
+}
+
+.top-content-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(12px);
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.top-content-views {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  color: #fff;
+}
+
+.top-content-arrow {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.65);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.top-content-arrow:hover {
+  background: rgba(105, 45, 255, 0.75);
+  border-color: rgba(150, 110, 255, 0.55);
+}
+
+.top-content-arrow-left {
+  left: 40px;
+}
+
+.top-content-arrow-right {
+  right: 40px;
+}
+
+.top-content-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 24px;
+}
+
+.top-content-counter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.top-content-counter > span {
+  min-width: 20px;
+}
+
+.top-content-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.top-content-progress button {
+  width: 32px;
+  height: 2px;
+  padding: 0;
+  border: 0;
+  background: rgba(255, 255, 255, 0.16);
+  cursor: pointer;
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.top-content-progress button.active {
+  width: 55px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.top-content-swipe {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .top-content-section {
+    padding: 110px 0;
+  }
+
+  .top-content-header {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+
+  .top-content-header p {
+    margin: 0;
+    max-width: 520px;
+  }
+
+  .top-content-stage {
+    min-height: 680px;
+  }
+
+  .top-content-arrow-left {
+    left: 24px;
+  }
+
+  .top-content-arrow-right {
+    right: 24px;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .top-content-section {
+    padding: 90px 0;
+  }
+
+  .top-content-inner {
+    width: min(100% - 32px, 1200px);
+  }
+
+  .top-content-header {
+    margin-bottom: 36px;
+  }
+
+  .top-content-header h2 {
+    font-size: clamp(42px, 13vw, 62px);
+  }
+
+  .top-content-header p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .top-content-stage {
+    min-height: 620px;
+    border-radius: 20px;
+  }
+
+  .top-content-video-wrap {
+    width: min(340px, 72%);
+    border-radius: 14px;
+  }
+
+  .top-content-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .top-content-arrow-left {
+    left: 12px;
+  }
+
+  .top-content-arrow-right {
+    right: 12px;
+  }
+
+  .top-content-overlay {
+    padding: 18px;
+  }
+
+  .top-content-label {
+    font-size: 9px;
+  }
+
+  .top-content-views {
+    font-size: 28px;
+  }
+
+  .top-content-bottom {
+    margin-top: 18px;
+  }
+
+  .top-content-swipe {
+    display: none;
+  }
+
+  .top-content-progress button {
+    width: 22px;
+  }
+
+  .top-content-progress button.active {
+    width: 38px;
+  }
+}
+.top-content-tiktok-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.top-content-tiktok {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.top-content-tiktok:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}

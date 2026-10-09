@@ -1,6 +1,13 @@
-import { useState } from "react";
+
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  Menu,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 import "./App.css";
 import "./Navbar.css";
@@ -12,200 +19,226 @@ import "./Process.css";
 import "./Why.css";
 import "./Network.css";
 import "./Footer.css";
+import "./Pricing.css";
+import "./TopContent.css";
+import "./Songs.css";
 
-import yalaArtwork from "./assets/campaigns/yala.jpg";
+import Pricing from "./Pricing";
 import elaAceleraArtwork from "./assets/campaigns/ela-acelera.jpg";
-import selfAwareArtwork from "./assets/campaigns/self-aware.jpg";
-import smHardtekkArtwork from "./assets/campaigns/sm-hardtekk.jpg";
-
-const reveal = {
-  hidden: { opacity: 0, y: 35 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.75,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-const revealSlow = {
-  hidden: { opacity: 0, y: 55 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-const stagger = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const campaigns = [
-  {
-    title: "YALA — Super Slowed",
-    artist: "QMIIR, DJ Zarek, Irokz",
-    type: "TikTok Music Campaign",
-    number: "01",
-    className: "campaign-purple",
-    spotify:
-      "https://open.spotify.com/track/0TcB7NLT53MmAdgocbP2x0",
-    artwork: yalaArtwork,
-  },
-  {
-    title: "ELA ACELERA",
-    artist: "Sayfalse, Zericxxn, D4R.IO",
-    type: "TikTok Music Campaign",
-    number: "02",
-    className: "campaign-red",
-    spotify:
-      "https://open.spotify.com/track/6br6Ek1t1An046l7kocCwH",
-    artwork: elaAceleraArtwork,
-  },
-  {
-    title: "Self Aware — Orchestral",
-    artist: "Orchestra Club",
-    type: "TikTok Music Campaign",
-    number: "03",
-    className: "campaign-blue",
-    spotify:
-      "https://open.spotify.com/track/5G8IylSGtcriQsRM135nx0",
-    artwork: selfAwareArtwork,
-  },
-  {
-    title: "S&M HARDTEKK — SLOWED",
-    artist: "VLNCRSH",
-    type: "TikTok Music Campaign",
-    number: "04",
-    className: "campaign-orange",
-    spotify:
-      "https://open.spotify.com/track/6PmwG7RQArxW8CKAgkdwLO",
-    artwork: smHardtekkArtwork,
-  },
-];
-
-const results = [
-  { value: "XX+", label: "Campaigns" },
-  { value: "XXX+", label: "Creators & Editors" },
-  { value: "XXM+", label: "Total Views" },
-  { value: "XXM+", label: "Highest Campaign Reach" },
-];
-
-const processSteps = [
-  {
-    number: "01",
-    title: "Campaign Brief",
-    description:
-      "We understand the release, goals, audience and campaign requirements.",
-  },
-  {
-    number: "02",
-    title: "Creator Selection",
-    description:
-      "We find relevant editors and creators that fit the campaign and its audience.",
-  },
-  {
-    number: "03",
-    title: "Campaign Launch",
-    description:
-      "Once approved, creators publish content using the track across TikTok.",
-  },
-  {
-    number: "04",
-    title: "Tracking & Results",
-    description:
-      "We monitor posts, views, engagement and overall campaign performance.",
-  },
-];
-
-const whyFeatures = [
-  {
-    number: "01",
-    title: "Transparent Process",
-    description:
-      "You know what is happening at every stage of the campaign, from creator selection to final results.",
-  },
-  {
-    number: "02",
-    title: "Competitive Creator Rates",
-    description:
-      "We negotiate competitive prices with editors and creators so more of your budget goes toward the campaign itself.",
-  },
-  {
-    number: "03",
-    title: "Relevant Creators",
-    description:
-      "We focus on creators whose content and audience make sense for the release and campaign.",
-  },
-  {
-    number: "04",
-    title: "Client Approval",
-    description:
-      "You review and approve the selected creators before the campaign goes live.",
-  },
-  {
-    number: "05",
-    title: "End-to-End Management",
-    description:
-      "We handle creator sourcing, communication, coordination and campaign tracking for you.",
-  },
-  {
-    number: "06",
-    title: "Weekly Reports",
-    description:
-      "Clear campaign updates keep you informed about posts, views and overall performance.",
-  },
-];
-
-const networkCategories = [
-  "Phonk",
-  "Hardtekk",
-  "House",
-  "Pop",
-  "Dance",
-  "Meme",
-  "Anime",
-  "Cars",
-  "Gym",
-  "Lifestyle",
-];
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeContent, setActiveContent] = useState(0);
+  const songsTrackRef = useRef(null);
 
-  const closeMenu = () => setMenuOpen(false);
+  const topPerformingContent = [
+    {
+      id: 1,
+      video: "/videos/ela acelera1.mp4",
+      views: "13.7M Views",
+      tiktok: "https://vt.tiktok.com/ZSbpkGtoN/",
+    },
+    {
+      id: 2,
+      video: "/videos/yala slowed1.mp4",
+      views: "332k Views",
+      tiktok: "https://vt.tiktok.com/ZSbpkE7B9/",
+    },
+    {
+      id: 3,
+      video: "/videos/hardtekk2.mp4",
+      views: "2.7M Views",
+      tiktok: "https://vt.tiktok.com/ZSbpB1y6Y/",
+    },
+    {
+      id: 4,
+      video: "/videos/speakup1.mp4",
+      views: "1M Views",
+      tiktok: "https://vt.tiktok.com/ZSbpBRGLN/",
+    },
+    {
+      id: 5,
+      video: "/videos/yalaslowed3.mp4",
+      views: "217k Views",
+      tiktok: "https://vt.tiktok.com/ZSbpk3wuQ/",
+    },
+  ];
+
+  const songs = [
+    {
+      title: "YALA - SLOWED",
+      artist: "QMIIR, DJ Zarek, Irokz",
+      artwork:
+        "https://open.voidware.de/track/0h4kC7ZNJZDEYDlYQTlDoB",
+      spotify:
+        "https://open.spotify.com/track/0h4kC7ZNJZDEYDlYQTlDoB",
+    },
+    {
+      title: "PENTHOUSE",
+      artist: "Fyex, Dj Samir, mati2k",
+      artwork:
+        "https://open.voidware.de/track/2LRtS39Bpt9sIOfshAFPnr",
+      spotify:
+        "https://open.spotify.com/track/2LRtS39Bpt9sIOfshAFPnr",
+    },
+    {
+      title: "SPEAK UP",
+      artist: "PUNXO",
+      artwork:
+        "https://open.voidware.de/track/0we6QNkfHWedfeuIyai4aG",
+      spotify:
+        "https://open.spotify.com/track/0we6QNkfHWedfeuIyai4aG",
+    },
+    {
+      title: "ELA ACELERA",
+      artist: "Sayfalse, Zericxxn, D4R.IO",
+      artwork: elaAceleraArtwork,
+      spotify:
+        "https://open.spotify.com/track/6br6Ek1t1An046l7kocCwH",
+    },
+    {
+      title: "S&M HARDTEKK",
+      artist: "VLNCRSH",
+      artwork:
+        "https://open.voidware.de/track/4E9qJpXxBha2JLT92NC7bL",
+      spotify:
+        "https://open.spotify.com/track/4E9qJpXxBha2JLT92NC7bL",
+    },
+    {
+      title: "S&M HARDSTYLE",
+      artist: "Renstiel",
+      artwork:
+        "https://open.voidware.de/track/0i6OcBQUMfMhCecDuYFzPK",
+      spotify:
+        "https://open.spotify.com/track/0i6OcBQUMfMhCecDuYFzPK",
+    },
+    {
+      title: "I Hate You",
+      artist: "lolwtfitsjake",
+      artwork:
+        "https://open.voidware.de/track/54UuocT4NpUDQrgUGz7S8E",
+      spotify:
+        "https://open.spotify.com/track/54UuocT4NpUDQrgUGz7S8E",
+    },
+    {
+      title: "MY DESTINY HARDTEKK",
+      artist: "conqr, RADIXNT",
+      artwork:
+        "https://open.voidware.de/track/0JAsPa4xiUpZinuRkOorJ0",
+      spotify:
+        "https://open.spotify.com/track/0JAsPa4xiUpZinuRkOorJ0",
+    },
+    {
+      title: "ESPAÇO LIMINAL 2",
+      artist: "NXGHT!, KGJ, Scythermane",
+      artwork:
+        "https://open.voidware.de/track/6NBMY5dl0oFqZwbnyurtnr",
+      spotify:
+        "https://open.spotify.com/track/6NBMY5dl0oFqZwbnyurtnr",
+    },
+    {
+      title: "MONTAGEM MANDELA",
+      artist: "MXZI, Dj Samir, volkz",
+      artwork:
+        "https://open.voidware.de/track/7mF8kh1OlLFawmMD1taJLh",
+      spotify:
+        "https://open.spotify.com/track/7mF8kh1OlLFawmMD1taJLh",
+    },
+    {
+      title: "MONTAGEM TENTAÇÃO",
+      artist: "Dexhenry, DJ QUIRINO, ZomboBox!",
+      artwork:
+        "https://open.voidware.de/track/4RnqCp46W19Wd37v2mFswy",
+      spotify:
+        "https://open.spotify.com/track/4RnqCp46W19Wd37v2mFswy",
+    },
+    {
+      title: "The Crazy In Your Eyes",
+      artist: "lolwtfitsjake",
+      artwork:
+        "https://open.voidware.de/track/4OQ20fwtLIgJ6MjVFs1ROi",
+      spotify:
+        "https://open.spotify.com/track/4OQ20fwtLIgJ6MjVFs1ROi",
+    },
+  ];
+
+  const nextContent = () => {
+    setActiveContent(
+      (current) => (current + 1) % topPerformingContent.length
+    );
+  };
+
+  const previousContent = () => {
+    setActiveContent(
+      (current) =>
+        (current - 1 + topPerformingContent.length) %
+        topPerformingContent.length
+    );
+  };
+
+  const scrollSongs = (direction) => {
+    if (!songsTrackRef.current) return;
+
+    songsTrackRef.current.scrollBy({
+      left: direction * songsTrackRef.current.clientWidth * 0.8,
+      behavior: "smooth",
+    });
+  };
+
+  const currentContent = topPerformingContent[activeContent];
+
+  const reveal = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const revealSlow = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.9,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
 
   return (
     <div className="site">
-      {/* NAVBAR */}
+      {/* ==================== NAVBAR ==================== */}
       <nav className="navbar">
-        <a href="#top" className="nav-logo" onClick={closeMenu}>
-          7arcmedia
+        <a href="#home" className="nav-logo">
+          7arc<span>media</span>
         </a>
 
         <div className="nav-links">
+          <a href="#home">Home</a>
+          <a href="#what-we-do">What We Do</a>
           <a href="#campaigns">Work</a>
+          <a href="#results">Creator Network</a>
+          <a href="#songs">Songs</a>
+          <a href="#pricing">Pricing</a>
           <a href="#process">Process</a>
-          <a href="#why">Why Us</a>
           <a href="#contact">Contact</a>
         </div>
 
-        <a
-          href="mailto:hello@7arcmedia.com"
-          className="nav-cta"
-        >
+        <a href="#contact" className="nav-cta">
           Start a Campaign
-          <ArrowUpRight size={14} />
+          <ArrowUpRight size={16} />
         </a>
 
         <button
@@ -213,38 +246,48 @@ function App() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={21} /> : <Menu size={21} />}
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         <AnimatePresence>
           {menuOpen && (
             <motion.div
               className="mobile-menu"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
             >
-              <a href="#campaigns" onClick={closeMenu}>
+              <a href="#home" onClick={() => setMenuOpen(false)}>
+                Home
+              </a>
+              <a
+                href="#what-we-do"
+                onClick={() => setMenuOpen(false)}
+              >
+                What We Do
+              </a>
+              <a href="#campaigns" onClick={() => setMenuOpen(false)}>
                 Work
               </a>
-
-              <a href="#process" onClick={closeMenu}>
+              <a href="#results" onClick={() => setMenuOpen(false)}>
+                Creator Network
+              </a>
+              <a href="#songs" onClick={() => setMenuOpen(false)}>
+                Songs
+              </a>
+              <a href="#pricing" onClick={() => setMenuOpen(false)}>
+                Pricing
+              </a>
+              <a href="#process" onClick={() => setMenuOpen(false)}>
                 Process
               </a>
-
-              <a href="#why" onClick={closeMenu}>
-                Why Us
-              </a>
-
-              <a href="#contact" onClick={closeMenu}>
+              <a href="#contact" onClick={() => setMenuOpen(false)}>
                 Contact
               </a>
-
               <a
-                href="mailto:hello@7arcmedia.com"
+                href="#contact"
                 className="mobile-cta"
-                onClick={closeMenu}
+                onClick={() => setMenuOpen(false)}
               >
                 Start a Campaign
               </a>
@@ -253,567 +296,530 @@ function App() {
         </AnimatePresence>
       </nav>
 
-      {/* HERO */}
-      <main id="top">
-        <section className="hero">
-          <div className="hero-content">
-            <motion.div
-              className="hero-copy"
-              initial="hidden"
-              animate="visible"
-              variants={stagger}
-            >
-              <motion.div
-                className="hero-eyebrow"
-                variants={reveal}
-              >
-                TikTok Music Marketing
-              </motion.div>
-
-              <motion.h1 variants={revealSlow}>
-                TikTok campaigns
-                <br />
-                <span>built around your release.</span>
-              </motion.h1>
-
-              <motion.p
-                className="hero-description"
-                variants={reveal}
-              >
-                We help labels promote their music through TikTok
-                campaigns with relevant editors and IRL creators.
-              </motion.p>
-
-              <motion.div
-                className="hero-actions"
-                variants={reveal}
-              >
-                <a
-                  href="mailto:hello@7arcmedia.com"
-                  className="hero-primary"
-                >
-                  Start a Campaign
-                  <ArrowUpRight size={15} />
-                </a>
-
-                <a
-                  href="#campaigns"
-                  className="hero-secondary"
-                >
-                  View Our Work
-                </a>
-              </motion.div>
-            </motion.div>
-          </div>
-
+      {/* ==================== HERO ==================== */}
+      <section id="home" className="hero">
+        <div className="hero-content">
           <motion.div
-            className="hero-visual"
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 1.2,
-              delay: 0.2,
-              ease: [0.22, 1, 0.36, 1],
+            className="hero-copy"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.12 },
+              },
             }}
           >
-            <div className="hero-orbit" />
-            <div className="hero-orbit-two" />
-            <div className="hero-core" />
+            <motion.div className="hero-eyebrow" variants={reveal}>
+              TikTok Music Marketing
+            </motion.div>
 
-            <div className="hero-card hero-card-one">
-              <span>Campaigns</span>
-              <strong>Creator-led</strong>
-            </div>
+            <motion.h1 variants={reveal}>
+              TikTok campaigns
+              <br />
+              <span>built around your release.</span>
+            </motion.h1>
 
-            <div className="hero-card hero-card-two">
-              <span>Network</span>
-              <strong>Relevant audiences</strong>
-            </div>
+            <motion.p className="hero-description" variants={reveal}>
+              We help labels promote their music through TikTok campaigns
+              with relevant editors and IRL creators.
+            </motion.p>
 
-            <div className="hero-card hero-card-three">
-              <span>Management</span>
-              <strong>End to end</strong>
-            </div>
+            <motion.div className="hero-actions" variants={reveal}>
+              <a href="#contact" className="hero-primary">
+                Start a Campaign
+                <ArrowUpRight size={18} />
+              </a>
+              <a href="#campaigns" className="hero-secondary">
+                View Our Work
+              </a>
+            </motion.div>
           </motion.div>
-        </section>
+        </div>
 
-        {/* WHAT WE DO */}
-        <motion.section
-          className="what-section"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={stagger}
-        >
-          <div className="what-inner">
-            <div className="what-top">
-              <motion.div
-                className="what-heading"
-                variants={reveal}
-              >
-                <div className="section-label">
-                  <span>01</span>
-                  What We Do
-                </div>
+        <div className="hero-visual">
+          <div className="hero-orbit" />
+          <div className="hero-orbit-two" />
+          <div className="hero-core" />
 
-                <h2>
-                  Music promotion built for TikTok.
-                </h2>
-              </motion.div>
+          <div className="hero-card hero-card-one">
+            <span>Campaigns</span>
+            <strong>Built for TikTok</strong>
+          </div>
+          <div className="hero-card hero-card-two">
+            <span>Network</span>
+            <strong>500+ Creators</strong>
+          </div>
+          <div className="hero-card hero-card-three">
+            <span>Distribution</span>
+            <strong>20+ Niches</strong>
+          </div>
+        </div>
+      </section>
 
-              <motion.div
-                className="what-copy"
-                variants={revealSlow}
-              >
-                <p>
-                  We help labels promote their music through TikTok
-                  campaigns with relevant editors and IRL creators.
-                  From creator sourcing to campaign management and
-                  performance tracking, we handle it end to end.
-                </p>
-              </motion.div>
-            </div>
-
+      {/* ==================== WHAT WE DO ==================== */}
+      <section id="what-we-do" className="what-section">
+        <div className="what-inner">
+          <div className="what-top">
             <motion.div
-              className="what-line"
+              className="what-heading"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               variants={reveal}
-            />
+            >
+              <div className="section-label">
+                <span>01</span>
+                What We Do
+              </div>
+
+              <h2>
+                TikTok music campaigns.
+                <br />
+                <span>Built around your release.</span>
+              </h2>
+            </motion.div>
 
             <motion.div
-              className="what-bottom"
-              variants={stagger}
+              className="what-copy"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={reveal}
             >
-              <motion.div
-                className="what-item"
-                variants={reveal}
-              >
-                <span className="what-item-number">01</span>
-                <h3>Creator Sourcing</h3>
-                <p>
-                  We find editors and creators relevant to the
-                  release and its audience.
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="what-item"
-                variants={reveal}
-              >
-                <span className="what-item-number">02</span>
-                <h3>Campaign Management</h3>
-                <p>
-                  We coordinate creators, communication and
-                  campaign execution from start to finish.
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="what-item"
-                variants={reveal}
-              >
-                <span className="what-item-number">03</span>
-                <h3>Performance Tracking</h3>
-                <p>
-                  We monitor campaign activity and keep you
-                  updated on performance.
-                </p>
-              </motion.div>
+              <p>
+                We help labels and artists build momentum around their
+                releases through relevant TikTok editors and IRL creators.
+                From creator selection to campaign management and performance
+                tracking, we bring the right people and content together to
+                get your music heard.
+              </p>
+              <div className="what-line" />
             </motion.div>
           </div>
-        </motion.section>
+        </div>
+      </section>
 
-        {/* CAMPAIGNS */}
-        <motion.section
-          id="campaigns"
-          className="campaigns-section"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <div className="campaigns-header">
+      {/* ==================== TOP PERFORMING CONTENT ==================== */}
+      <motion.section
+        id="campaigns"
+        className="top-content-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={revealSlow}
+      >
+        <div className="top-content-inner">
+          <div className="top-content-header">
             <motion.div variants={reveal}>
               <div className="section-label">
                 <span>02</span>
-                Campaigns
+                Top Performing Content
               </div>
-
-              <h2>Campaigns we've worked on.</h2>
+              <h2>
+                Content built to
+                <br />
+                perform.
+              </h2>
             </motion.div>
 
             <motion.p variants={reveal}>
-              A look at some of the music campaigns we've worked on
-              across different sounds, audiences and creator
-              communities.
+              A look at some of our best-performing TikTok content and the
+              reach it generated.
             </motion.p>
           </div>
 
           <motion.div
-            className="campaign-grid"
-            variants={stagger}
+            className="top-content-showcase"
+            variants={revealSlow}
           >
-            {campaigns.map((campaign) => (
-              <motion.a
-                key={campaign.number}
-                href={campaign.spotify}
-                target="_blank"
-                rel="noreferrer"
-                className={`campaign-card ${campaign.className}`}
-                variants={reveal}
-              >
-                <div className="campaign-art">
-                  <img
-                    src={campaign.artwork}
-                    alt={`${campaign.title} campaign artwork`}
+            <div className="top-content-stage">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentContent.id}
+                  className="top-content-video-wrap"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.15}
+                  onDragEnd={(_, info) => {
+                    if (info.offset.x < -60) nextContent();
+                    if (info.offset.x > 60) previousContent();
+                  }}
+                >
+                  <video
+                    className="top-content-video"
+                    src={currentContent.video}
+                    controls
+                    playsInline
+                    preload="metadata"
                   />
 
-                  <span className="campaign-number">
-                    {campaign.number}
-                  </span>
-
-                  <span className="art-mark">
-                    <ArrowUpRight size={13} />
-                  </span>
-
-                  <span className="campaign-hover">
-                    <ArrowUpRight size={19} />
-                  </span>
-                </div>
-
-                <div className="campaign-info">
-                  <div className="campaign-type">
-                    {campaign.type}
+                  <div className="top-content-overlay">
+                    <span className="top-content-label">
+                      Top Performing Content
+                    </span>
+                    <span className="top-content-views">
+                      {currentContent.views}
+                    </span>
                   </div>
+                </motion.div>
+              </AnimatePresence>
 
-                  <h3>{campaign.title}</h3>
+              <button
+                className="top-content-arrow top-content-arrow-left"
+                onClick={previousContent}
+                aria-label="Previous video"
+              >
+                <ChevronLeft size={24} />
+              </button>
 
-                  <p>{campaign.artist}</p>
+              <button
+                className="top-content-arrow top-content-arrow-right"
+                onClick={nextContent}
+                aria-label="Next video"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
 
-                  <span className="campaign-arrow">
-                    <ArrowUpRight size={16} />
-                  </span>
+            <div className="top-content-tiktok-wrapper">
+              <a
+                href={currentContent.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="top-content-tiktok"
+              >
+                View on TikTok
+                <ArrowUpRight size={16} />
+              </a>
+            </div>
+
+            <div className="top-content-bottom">
+              <div className="top-content-counter">
+                <span>
+                  {String(activeContent + 1).padStart(2, "0")}
+                </span>
+
+                <div className="top-content-progress">
+                  {topPerformingContent.map((item, index) => (
+                    <button
+                      key={item.id}
+                      className={index === activeContent ? "active" : ""}
+                      onClick={() => setActiveContent(index)}
+                      aria-label={`View video ${index + 1}`}
+                    />
+                  ))}
                 </div>
-              </motion.a>
-            ))}
+
+                <span>
+                  {String(topPerformingContent.length).padStart(2, "0")}
+                </span>
+              </div>
+
+              <div className="top-content-swipe">
+                Swipe to explore
+              </div>
+            </div>
           </motion.div>
-        </motion.section>
+        </div>
+      </motion.section>
 
-        {/* RESULTS */}
-        <motion.section
-          className="results-section"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <div className="results-inner">
-            <div className="results-header">
-              <motion.div variants={reveal}>
-                <div className="section-label">
-                  <span>03</span>
-                  Results
-                </div>
-
-                <h2>
-                  Built around
-                  <br />
-                  performance.
-                </h2>
-              </motion.div>
-
-              <motion.p variants={reveal}>
-                Campaign performance built through relevant creators,
-                consistent execution and focused campaign management.
-              </motion.p>
-            </div>
-
-            <motion.div
-              className="results-grid"
-              variants={stagger}
-            >
-              {results.map((result) => (
-                <motion.div
-                  className="result-card"
-                  key={result.label}
-                  variants={reveal}
-                >
-                  <div className="result-number">
-                    {result.value}
-                  </div>
-
-                  <div className="result-label">
-                    {result.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <motion.p
-              className="results-note"
-              variants={reveal}
-            >
-              * Performance figures will be updated with verified
-              campaign data.
-            </motion.p>
-          </div>
-        </motion.section>
-
-        {/* PROCESS */}
-        <motion.section
-          id="process"
-          className="process-section"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.12 }}
-        >
-          <div className="process-inner">
-            <div className="process-header">
-              <motion.div variants={reveal}>
-                <div className="section-label">
-                  <span>04</span>
-                  Process
-                </div>
-
-                <h2>
-                  From release
-                  <br />
-                  to campaign.
-                </h2>
-              </motion.div>
-
-              <motion.p variants={reveal}>
-                A straightforward process designed to keep campaigns
-                organised, transparent and focused.
-              </motion.p>
-            </div>
-
-            <motion.div
-              className="process-list"
-              variants={stagger}
-            >
-              {processSteps.map((step) => (
-                <motion.div
-                  className="process-item"
-                  key={step.number}
-                  variants={reveal}
-                >
-                  <span className="process-number">
-                    {step.number}
-                  </span>
-
-                  <h3>{step.title}</h3>
-
-                  <p>{step.description}</p>
-
-                  <span className="process-arrow">
-                    <ArrowUpRight size={15} />
-                  </span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* WHY 7ARCMEDIA */}
-        <motion.section
-          id="why"
-          className="why-section"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          <div className="why-inner">
-            <div className="why-header">
-              <motion.div variants={reveal}>
-                <div className="section-label">
-                  <span>05</span>
-                  Why 7arcmedia
-                </div>
-
-                <h2>
-                  Built to make
-                  <br />
-                  campaigns easier.
-                </h2>
-              </motion.div>
-
-              <motion.p variants={reveal}>
-                Clear communication, relevant creators and hands-on
-                campaign management from start to finish.
-              </motion.p>
-            </div>
-
-            <motion.div
-              className="why-grid"
-              variants={stagger}
-            >
-              {whyFeatures.map((feature) => (
-                <motion.div
-                  className="why-card"
-                  key={feature.number}
-                  variants={reveal}
-                >
-                  <span className="why-number">
-                    {feature.number}
-                  </span>
-
-                  <h3>{feature.title}</h3>
-
-                  <p>{feature.description}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* CREATOR NETWORK */}
-        <motion.section
-          className="network-section"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <div className="network-inner">
-            <div className="network-header">
-              <motion.div variants={reveal}>
-                <div className="section-label">
-                  <span>06</span>
-                  Creator Network
-                </div>
-
-                <h2>
-                  Different sounds.
-                  <br />
-                  Different communities.
-                </h2>
-              </motion.div>
-
-              <motion.p variants={reveal}>
-                Our creator network spans multiple content styles,
-                niches and communities across TikTok.
-              </motion.p>
-            </div>
-
-            <motion.div
-              className="network-cloud"
-              variants={stagger}
-            >
-              {networkCategories.map((category) => (
-                <motion.div
-                  className="network-tag"
-                  key={category}
-                  variants={reveal}
-                >
-                  {category}
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              className="network-bottom"
-              variants={reveal}
-            >
-              <span>Relevant creators for every release</span>
-              <div className="network-bottom-line" />
-            </motion.div>
-          </div>
-        </motion.section>
-      </main>
-
-      {/* FOOTER / FINAL CTA */}
-      <footer
-        id="contact"
-        className="footer"
-      >
-        <div className="footer-inner">
+      {/* ==================== SONGS WE'VE WORKED ON ==================== */}
+      <section id="songs" className="songs-section">
+        <div className="songs-inner">
           <motion.div
-            className="footer-cta"
+            className="songs-header"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            variants={stagger}
+            variants={reveal}
           >
-            <motion.div
-              className="footer-cta-label"
-              variants={reveal}
-            >
-              Let's work together
-            </motion.div>
+            <div className="songs-heading">
+              <div className="section-label">
+                Songs We've Worked On
+              </div>
 
-            <motion.h2 variants={revealSlow}>
-              Have a release coming up?
-              <br />
-              <span>Let's build a TikTok campaign around it.</span>
-            </motion.h2>
+              <h2>
+                Releases we've
+                <br />
+                <span>helped build momentum around.</span>
+              </h2>
 
-            <motion.a
-              href="mailto:hello@7arcmedia.com"
-              className="footer-cta-button"
-              variants={reveal}
-            >
-              Start a Campaign
-              <ArrowUpRight size={15} />
-            </motion.a>
+              <p className="songs-description">
+                A selection of releases we've supported through our music
+                campaigns.
+              </p>
+            </div>
+
+            <div className="songs-controls">
+              <button
+                type="button"
+                className="songs-arrow"
+                onClick={() => scrollSongs(-1)}
+                aria-label="Scroll to previous songs"
+              >
+                <ChevronLeft size={22} />
+              </button>
+
+              <button
+                type="button"
+                className="songs-arrow"
+                onClick={() => scrollSongs(1)}
+                aria-label="Scroll to next songs"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
           </motion.div>
 
-          <div className="footer-main">
-            <div className="footer-brand">
-              <div className="footer-logo">
-                7arcmedia
-              </div>
+          <motion.div
+            className="songs-track"
+            ref={songsTrackRef}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={revealSlow}
+          >
+            {songs.map((song) => (
+              <article className="song-card" key={song.spotify}>
+                <div className="song-artwork-wrap">
+                  <img
+                    className="song-artwork"
+                    src={song.artwork}
+                    alt={`${song.title} cover artwork`}
+                    loading="lazy"
+                  />
+                </div>
 
-              <p>
-                TikTok music campaigns built around relevant creators,
-                editors and communities.
-              </p>
+                <div className="song-info">
+                  <h3 className="song-title" title={song.title}>
+                    {song.title}
+                  </h3>
 
-              <a
-                href="mailto:hello@7arcmedia.com"
-                className="footer-email"
-              >
-                hello@7arcmedia.com
-              </a>
+                  {song.artist && (
+                    <p className="song-artist" title={song.artist}>
+                      {song.artist}
+                    </p>
+                  )}
+
+                  <a
+                    className="song-spotify-link"
+                    href={song.spotify}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Listen on Spotify
+                    <ArrowUpRight size={15} />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </motion.div>
+
+          <p className="songs-hint">
+            Swipe to explore the releases →
+          </p>
+        </div>
+      </section>
+
+      {/* ==================== CREATOR NETWORK ==================== */}
+      <section id="results" className="results-section">
+        <div className="results-inner">
+          <motion.div
+            className="section-heading"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={reveal}
+          >
+            <div className="section-label">
+              <span>03</span>
+              Creator Network
             </div>
 
-            <div className="footer-column">
-              <h4>Navigation</h4>
+            <h2>
+              Built around
+              <br />
+              <span>performance.</span>
+            </h2>
 
-              <div className="footer-links">
-                <a href="#campaigns">Campaigns</a>
-                <a href="#process">Process</a>
-                <a href="#why">Why 7arcmedia</a>
-                <a href="#contact">Contact</a>
-              </div>
-            </div>
-
-            <div className="footer-column">
-              <h4>Connect</h4>
-
-              <div className="footer-links">
-                <a href="mailto:hello@7arcmedia.com">
-                  Email
-                </a>
-
-                <a href="#" onClick={(e) => e.preventDefault()}>
-                  Instagram
-                </a>
-
-                <a href="#" onClick={(e) => e.preventDefault()}>
-                  TikTok
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="footer-bottom">
             <p>
-              © {new Date().getFullYear()} 7arcmedia. All rights
-              reserved.
+              Campaign performance built through relevant creators,
+              consistent execution and focused campaign management.
+            </p>
+          </motion.div>
+
+          <div className="results-grid">
+            <motion.div
+              className="result-item"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={reveal}
+            >
+              <strong>500+</strong>
+              <span>Creator Network</span>
+            </motion.div>
+
+            <motion.div
+              className="result-item"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={reveal}
+            >
+              <strong>20+</strong>
+              <span>Niches</span>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== PROCESS ==================== */}
+      <section id="process" className="process-section">
+        <div className="process-inner">
+          <motion.div
+            className="section-heading"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={reveal}
+          >
+            <div className="section-label">
+              <span>04</span>
+              Process
+            </div>
+
+            <h2>
+              From strategy
+              <br />
+              <span>to distribution.</span>
+            </h2>
+          </motion.div>
+
+          <div className="process-list">
+            <motion.div
+              className="process-item"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={reveal}
+            >
+              <span className="process-number">01</span>
+              <div>
+                <h3>Understand your release</h3>
+                <p>
+                  We understand the release, campaign goals, target audience,
+                  budget and distribution requirements.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="process-item"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={reveal}
+            >
+              <span className="process-number">02</span>
+              <div>
+                <h3>Creator selection</h3>
+                <p>
+                  We select relevant TikTok editors and creators based on
+                  their audience, content and past performance.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="process-item"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={reveal}
+            >
+              <span className="process-number">03</span>
+              <div>
+                <h3>Management</h3>
+                <p>
+                  We coordinate the campaign, manage creator distribution,
+                  track placements and keep the campaign running smoothly.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="process-item"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={reveal}
+            >
+              <span className="process-number">04</span>
+              <div>
+                <h3>Tracking &amp; reports</h3>
+                <p>
+                  We track views and campaign performance, providing clear
+                  reporting throughout the campaign.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== PRICING ==================== */}
+      <Pricing />
+
+      {/* ==================== CONTACT / FOOTER ==================== */}
+      <footer id="contact" className="footer-section">
+        <div className="footer-inner">
+          <motion.div
+            className="footer-main"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={reveal}
+          >
+            <div className="section-label">
+              <span>06</span>
+              Contact
+            </div>
+
+            <h2>
+              Have a release
+              <br />
+              <span>to promote?</span>
+            </h2>
+
+            <p>
+              Tell us about your release and campaign requirements.
             </p>
 
-            <div className="footer-socials">
-              <a href="mailto:hello@7arcmedia.com">
-                hello@7arcmedia.com
-              </a>
+            <a
+              href="https://www.instagram.com/7arcmedia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-cta"
+            >
+              Get in Touch
+              <ArrowUpRight size={20} />
+            </a>
+          </motion.div>
+
+          <div className="footer-bottom">
+            <div className="footer-logo">
+              7arc<span>media</span>
             </div>
+
+            <p>
+              © {new Date().getFullYear()} 7arcmedia. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
