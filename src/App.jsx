@@ -23,7 +23,8 @@ import "./Pricing.css";
 import "./TopContent.css";
 import "./Songs.css";
 
-import Pricing from "./Pricing";
+
+import WhyWorkWithUs from "./WhyWorkWithUs";
 import elaAceleraArtwork from "./assets/campaigns/ela-acelera.jpg";
 
 function App() {
@@ -233,6 +234,7 @@ function App() {
           <a href="#songs">Songs</a>
           <a href="#pricing">Pricing</a>
           <a href="#process">Process</a>
+          <a href="#why-work-with-us">Why Work With Us</a>
           <a href="#contact">Contact</a>
         </div>
 
@@ -280,6 +282,12 @@ function App() {
               </a>
               <a href="#process" onClick={() => setMenuOpen(false)}>
                 Process
+              </a>
+              <a
+                href="#why-work-with-us"
+                onClick={() => setMenuOpen(false)}
+              >
+                Why Work With Us
               </a>
               <a href="#contact" onClick={() => setMenuOpen(false)}>
                 Contact
@@ -773,8 +781,9 @@ function App() {
         </div>
       </section>
 
-      {/* ==================== PRICING ==================== */}
-      <Pricing />
+      {/* ==================== WHY WORK WITH US ==================== */}
+      <WhyWorkWithUs />
+
 
       {/* ==================== CONTACT / FOOTER ==================== */}
       <footer id="contact" className="footer-section">
