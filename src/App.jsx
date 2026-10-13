@@ -23,7 +23,6 @@ import "./Pricing.css";
 import "./TopContent.css";
 import "./Songs.css";
 
-
 import WhyWorkWithUs from "./WhyWorkWithUs";
 import elaAceleraArtwork from "./assets/campaigns/ela-acelera.jpg";
 
@@ -230,9 +229,7 @@ function App() {
           <a href="#home">Home</a>
           <a href="#what-we-do">What We Do</a>
           <a href="#campaigns">Work</a>
-          <a href="#results">Creator Network</a>
           <a href="#songs">Songs</a>
-          <a href="#pricing">Pricing</a>
           <a href="#process">Process</a>
           <a href="#why-work-with-us">Why Work With Us</a>
           <a href="#contact">Contact</a>
@@ -262,36 +259,49 @@ function App() {
               <a href="#home" onClick={() => setMenuOpen(false)}>
                 Home
               </a>
+
               <a
                 href="#what-we-do"
                 onClick={() => setMenuOpen(false)}
               >
                 What We Do
               </a>
-              <a href="#campaigns" onClick={() => setMenuOpen(false)}>
+
+              <a
+                href="#campaigns"
+                onClick={() => setMenuOpen(false)}
+              >
                 Work
               </a>
-              <a href="#results" onClick={() => setMenuOpen(false)}>
-                Creator Network
-              </a>
-              <a href="#songs" onClick={() => setMenuOpen(false)}>
+
+              <a
+                href="#songs"
+                onClick={() => setMenuOpen(false)}
+              >
                 Songs
               </a>
-              <a href="#pricing" onClick={() => setMenuOpen(false)}>
-                Pricing
-              </a>
-              <a href="#process" onClick={() => setMenuOpen(false)}>
+
+              <a
+                href="#process"
+                onClick={() => setMenuOpen(false)}
+              >
                 Process
               </a>
+
               <a
                 href="#why-work-with-us"
                 onClick={() => setMenuOpen(false)}
               >
                 Why Work With Us
               </a>
-              <a href="#contact" onClick={() => setMenuOpen(false)}>
+
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+              >
                 Contact
               </a>
+
               <a
                 href="#contact"
                 className="mobile-cta"
@@ -338,6 +348,7 @@ function App() {
                 Start a Campaign
                 <ArrowUpRight size={18} />
               </a>
+
               <a href="#campaigns" className="hero-secondary">
                 View Our Work
               </a>
@@ -354,10 +365,12 @@ function App() {
             <span>Campaigns</span>
             <strong>Built for TikTok</strong>
           </div>
+
           <div className="hero-card hero-card-two">
             <span>Network</span>
             <strong>500+ Creators</strong>
           </div>
+
           <div className="hero-card hero-card-three">
             <span>Distribution</span>
             <strong>20+ Niches</strong>
@@ -377,7 +390,6 @@ function App() {
               variants={reveal}
             >
               <div className="section-label">
-                <span>01</span>
                 What We Do
               </div>
 
@@ -402,6 +414,7 @@ function App() {
                 tracking, we bring the right people and content together to
                 get your music heard.
               </p>
+
               <div className="what-line" />
             </motion.div>
           </div>
@@ -421,9 +434,9 @@ function App() {
           <div className="top-content-header">
             <motion.div variants={reveal}>
               <div className="section-label">
-                <span>02</span>
                 Top Performing Content
               </div>
+
               <h2>
                 Content built to
                 <br />
@@ -470,6 +483,7 @@ function App() {
                     <span className="top-content-label">
                       Top Performing Content
                     </span>
+
                     <span className="top-content-views">
                       {currentContent.views}
                     </span>
@@ -634,59 +648,6 @@ function App() {
         </div>
       </section>
 
-      {/* ==================== CREATOR NETWORK ==================== */}
-      <section id="results" className="results-section">
-        <div className="results-inner">
-          <motion.div
-            className="section-heading"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={reveal}
-          >
-            <div className="section-label">
-              <span>03</span>
-              Creator Network
-            </div>
-
-            <h2>
-              Built around
-              <br />
-              <span>performance.</span>
-            </h2>
-
-            <p>
-              Campaign performance built through relevant creators,
-              consistent execution and focused campaign management.
-            </p>
-          </motion.div>
-
-          <div className="results-grid">
-            <motion.div
-              className="result-item"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={reveal}
-            >
-              <strong>500+</strong>
-              <span>Creator Network</span>
-            </motion.div>
-
-            <motion.div
-              className="result-item"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={reveal}
-            >
-              <strong>20+</strong>
-              <span>Niches</span>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* ==================== PROCESS ==================== */}
       <section id="process" className="process-section">
         <div className="process-inner">
@@ -698,7 +659,6 @@ function App() {
             variants={reveal}
           >
             <div className="section-label">
-              <span>04</span>
               Process
             </div>
 
@@ -718,6 +678,7 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">01</span>
+
               <div>
                 <h3>Understand your release</h3>
                 <p>
@@ -735,6 +696,7 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">02</span>
+
               <div>
                 <h3>Creator selection</h3>
                 <p>
@@ -752,6 +714,7 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">03</span>
+
               <div>
                 <h3>Management</h3>
                 <p>
@@ -769,6 +732,7 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">04</span>
+
               <div>
                 <h3>Tracking &amp; reports</h3>
                 <p>
@@ -784,7 +748,6 @@ function App() {
       {/* ==================== WHY WORK WITH US ==================== */}
       <WhyWorkWithUs />
 
-
       {/* ==================== CONTACT / FOOTER ==================== */}
       <footer id="contact" className="footer-section">
         <div className="footer-inner">
@@ -796,7 +759,6 @@ function App() {
             variants={reveal}
           >
             <div className="section-label">
-              <span>06</span>
               Contact
             </div>
 
