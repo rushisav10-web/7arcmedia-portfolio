@@ -367,13 +367,13 @@ function App() {
           </div>
 
           <div className="hero-card hero-card-two">
-            <span>Network</span>
-            <strong>500+ Creators</strong>
+            <span>Creators</span>
+            <strong>Selected for your release</strong>
           </div>
 
           <div className="hero-card hero-card-three">
             <span>Distribution</span>
-            <strong>20+ Niches</strong>
+            <strong>Managed from start to finish</strong>
           </div>
         </div>
       </section>
