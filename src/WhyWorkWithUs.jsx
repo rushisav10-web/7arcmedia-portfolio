@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
@@ -12,37 +11,37 @@ import "./WhyWorkWithUs.css";
 const features = [
   {
     number: "01",
-    title: "Reliable Creator Management",
+    title: "Reliable Campaign Management",
     description:
-      "We verify content and placements before processing creator payments, helping reduce the risk of fraudulent submissions.",
+      "We coordinate placements and review submitted content to help keep your campaign organized and on track.",
     icon: ShieldCheck,
   },
   {
     number: "02",
     title: "Deadline-Focused Execution",
     description:
-      "We work to complete campaigns within the agreed timeline, with clear reporting on campaign spending and performance.",
+      "We coordinate campaign delivery around agreed timelines and keep you informed of progress.",
     icon: Clock3,
   },
   {
     number: "03",
-    title: "Quality Creators",
+    title: "Relevant Creators & Editors",
     description:
-      "We select editors and creators based on content quality, relevance and campaign requirements.",
+      "We work with creators and editors whose content fits your music, audience and campaign goals.",
     icon: Users,
   },
   {
     number: "04",
-    title: "Correct Sound Usage",
+    title: "Accurate Sound Usage",
     description:
-      "We check that your specified track or sound is attached to campaign content as required.",
+      "We check that campaign content uses your specified track or sound as required.",
     icon: Music2,
   },
   {
     number: "05",
-    title: "Relevant Audience Targeting",
+    title: "Performance Tracking",
     description:
-      "We focus distribution on TikTok niches and communities that fit your music and campaign goals.",
+      "We track campaign results and provide a clear overview of content performance.",
     icon: Target,
   },
 ];
@@ -67,8 +66,8 @@ export default function WhyWorkWithUs() {
           </h2>
 
           <p>
-            We focus on the details that keep your music campaign
-            organized, relevant and on track.
+            We manage the details behind your TikTok music campaign,
+            so you can focus on your next release.
           </p>
         </motion.div>
 

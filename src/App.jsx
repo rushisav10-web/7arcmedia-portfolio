@@ -663,9 +663,9 @@ function App() {
             </div>
 
             <h2>
-              From strategy
+              From release
               <br />
-              <span>to distribution.</span>
+              <span>to reach.</span>
             </h2>
           </motion.div>
 
@@ -680,10 +680,9 @@ function App() {
               <span className="process-number">01</span>
 
               <div>
-                <h3>Understand your release</h3>
+                <h3>Understand</h3>
                 <p>
-                  We understand the release, campaign goals, target audience,
-                  budget and distribution requirements.
+                  We learn about your release, audience, and campaign goals.
                 </p>
               </div>
             </motion.div>
@@ -698,10 +697,9 @@ function App() {
               <span className="process-number">02</span>
 
               <div>
-                <h3>Creator selection</h3>
+                <h3>Select</h3>
                 <p>
-                  We select relevant TikTok editors and creators based on
-                  their audience, content and past performance.
+                  We identify relevant creators and editors for your release.
                 </p>
               </div>
             </motion.div>
@@ -716,10 +714,9 @@ function App() {
               <span className="process-number">03</span>
 
               <div>
-                <h3>Management</h3>
+                <h3>Execute</h3>
                 <p>
-                  We coordinate the campaign, manage creator distribution,
-                  track placements and keep the campaign running smoothly.
+                  We coordinate your campaign across selected creators and pages.
                 </p>
               </div>
             </motion.div>
@@ -734,10 +731,9 @@ function App() {
               <span className="process-number">04</span>
 
               <div>
-                <h3>Tracking &amp; reports</h3>
+                <h3>Report</h3>
                 <p>
-                  We track views and campaign performance, providing clear
-                  reporting throughout the campaign.
+                  You receive a clear overview of your campaign's performance.
                 </p>
               </div>
             </motion.div>
