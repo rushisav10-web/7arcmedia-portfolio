@@ -1,0 +1,124 @@
+
+.brand-story-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(84px, 10vw, 140px) 24px;
+  background: #070609;
+  color: #f7f5fb;
+}
+
+.brand-story-inner {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+}
+
+/* HEADLINE */
+
+.brand-story-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(32px, 4vw, 48px);
+}
+
+.brand-story-headline {
+  max-width: 1000px;
+  margin: 0;
+  color: #f8f7fb;
+  font-size: clamp(42px, 7.2vw, 88px);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+/* BODY COPY */
+
+.brand-story-copy {
+  width: min(100%, 690px);
+  margin-left: auto;
+}
+
+.brand-story-copy p {
+  margin: 0 0 22px;
+  color: #bcb7c7;
+  font-size: clamp(16px, 1.4vw, 18px);
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+.brand-story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* CLOSING STATEMENT */
+
+.brand-story-closing {
+  display: block;
+  width: min(100%, 920px);
+  margin-top: clamp(64px, 9vw, 112px);
+  padding-top: 30px;
+  border-top: 1px solid rgba(167, 139, 250, 0.28);
+}
+
+.brand-story-closing-mark {
+  display: none;
+}
+
+.brand-story-closing p {
+  max-width: 900px;
+  margin: 0;
+  color: #c5aaff;
+  font-size: clamp(27px, 4.2vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .brand-story-section {
+    padding: 76px 22px 84px;
+  }
+
+  .brand-story-main {
+    gap: 28px;
+  }
+
+  .brand-story-headline {
+    max-width: 600px;
+    font-size: clamp(40px, 10vw, 62px);
+    line-height: 1.05;
+    letter-spacing: -0.055em;
+  }
+
+  .brand-story-copy {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .brand-story-copy p {
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .brand-story-closing {
+    margin-top: 52px;
+    padding-top: 24px;
+  }
+
+  .brand-story-closing p {
+    font-size: clamp(28px, 7.5vw, 38px);
+    line-height: 1.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-story-section {
+    scroll-behavior: auto;
+  }
+}

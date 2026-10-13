@@ -13,6 +13,7 @@ import "./App.css";
 import "./Navbar.css";
 import "./Hero.css";
 import "./WhatWeDo.css";
+import "./BrandStory.css";
 import "./Campaigns.css";
 import "./Results.css";
 import "./Process.css";
@@ -68,97 +69,74 @@ function App() {
     {
       title: "YALA - SLOWED",
       artist: "QMIIR, DJ Zarek, Irokz",
-      artwork:
-        "https://open.voidware.de/track/0h4kC7ZNJZDEYDlYQTlDoB",
-      spotify:
-        "https://open.spotify.com/track/0h4kC7ZNJZDEYDlYQTlDoB",
+      artwork: "https://open.voidware.de/track/0h4kC7ZNJZDEYDlYQTlDoB",
+      spotify: "https://open.spotify.com/track/0h4kC7ZNJZDEYDlYQTlDoB",
     },
     {
       title: "PENTHOUSE",
       artist: "Fyex, Dj Samir, mati2k",
-      artwork:
-        "https://open.voidware.de/track/2LRtS39Bpt9sIOfshAFPnr",
-      spotify:
-        "https://open.spotify.com/track/2LRtS39Bpt9sIOfshAFPnr",
+      artwork: "https://open.voidware.de/track/2LRtS39Bpt9sIOfshAFPnr",
+      spotify: "https://open.spotify.com/track/2LRtS39Bpt9sIOfshAFPnr",
     },
     {
       title: "SPEAK UP",
       artist: "PUNXO",
-      artwork:
-        "https://open.voidware.de/track/0we6QNkfHWedfeuIyai4aG",
-      spotify:
-        "https://open.spotify.com/track/0we6QNkfHWedfeuIyai4aG",
+      artwork: "https://open.voidware.de/track/0we6QNkfHWedfeuIyai4aG",
+      spotify: "https://open.spotify.com/track/0we6QNkfHWedfeuIyai4aG",
     },
     {
       title: "ELA ACELERA",
       artist: "Sayfalse, Zericxxn, D4R.IO",
       artwork: elaAceleraArtwork,
-      spotify:
-        "https://open.spotify.com/track/6br6Ek1t1An046l7kocCwH",
+      spotify: "https://open.spotify.com/track/6br6Ek1t1An046l7kocCwH",
     },
     {
       title: "S&M HARDTEKK",
       artist: "VLNCRSH",
-      artwork:
-        "https://open.voidware.de/track/4E9qJpXxBha2JLT92NC7bL",
-      spotify:
-        "https://open.spotify.com/track/4E9qJpXxBha2JLT92NC7bL",
+      artwork: "https://open.voidware.de/track/4E9qJpXxBha2JLT92NC7bL",
+      spotify: "https://open.spotify.com/track/4E9qJpXxBha2JLT92NC7bL",
     },
     {
       title: "S&M HARDSTYLE",
       artist: "Renstiel",
-      artwork:
-        "https://open.voidware.de/track/0i6OcBQUMfMhCecDuYFzPK",
-      spotify:
-        "https://open.spotify.com/track/0i6OcBQUMfMhCecDuYFzPK",
+      artwork: "https://open.voidware.de/track/0i6OcBQUMfMhCecDuYFzPK",
+      spotify: "https://open.spotify.com/track/0i6OcBQUMfMhCecDuYFzPK",
     },
     {
       title: "I Hate You",
       artist: "lolwtfitsjake",
-      artwork:
-        "https://open.voidware.de/track/54UuocT4NpUDQrgUGz7S8E",
-      spotify:
-        "https://open.spotify.com/track/54UuocT4NpUDQrgUGz7S8E",
+      artwork: "https://open.voidware.de/track/54UuocT4NpUDQrgUGz7S8E",
+      spotify: "https://open.spotify.com/track/54UuocT4NpUDQrgUGz7S8E",
     },
     {
       title: "MY DESTINY HARDTEKK",
       artist: "conqr, RADIXNT",
-      artwork:
-        "https://open.voidware.de/track/0JAsPa4xiUpZinuRkOorJ0",
-      spotify:
-        "https://open.spotify.com/track/0JAsPa4xiUpZinuRkOorJ0",
+      artwork: "https://open.voidware.de/track/0JAsPa4xiUpZinuRkOorJ0",
+      spotify: "https://open.spotify.com/track/0JAsPa4xiUpZinuRkOorJ0",
     },
     {
       title: "ESPAÇO LIMINAL 2",
       artist: "NXGHT!, KGJ, Scythermane",
-      artwork:
-        "https://open.voidware.de/track/6NBMY5dl0oFqZwbnyurtnr",
-      spotify:
-        "https://open.spotify.com/track/6NBMY5dl0oFqZwbnyurtnr",
+      artwork: "https://open.voidware.de/track/6NBMY5dl0oFqZwbnyurtnr",
+      spotify: "https://open.spotify.com/track/6NBMY5dl0oFqZwbnyurtnr",
     },
     {
       title: "MONTAGEM MANDELA",
       artist: "MXZI, Dj Samir, volkz",
-      artwork:
-        "https://open.voidware.de/track/7mF8kh1OlLFawmMD1taJLh",
-      spotify:
-        "https://open.spotify.com/track/7mF8kh1OlLFawmMD1taJLh",
+      artwork: "https://open.voidware.de/track/7mF8kh1OlLFawmMD1taJLh",
+      spotify: "https://open.spotify.com/track/7mF8kh1OlLFawmMD1taJLh",
     },
     {
       title: "MONTAGEM TENTAÇÃO",
       artist: "Dexhenry, DJ QUIRINO, ZomboBox!",
-      artwork:
-        "https://open.voidware.de/track/4RnqCp46W19Wd37v2mFswy",
-      spotify:
-        "https://open.spotify.com/track/4RnqCp46W19Wd37v2mFswy",
+      artwork: "https://open.voidware.de/track/4RnqCp46W19Wd37v2mFswy",
+      spotify: "https://open.spotify.com/track/4RnqCp46W19Wd37v2mFswy",
     },
     {
       title: "The Crazy In Your Eyes",
       artist: "lolwtfitsjake",
-      artwork:
-        "https://open.voidware.de/track/4OQ20fwtLIgJ6MjVFs1ROi",
-      spotify:
-        "https://open.spotify.com/track/4OQ20fwtLIgJ6MjVFs1ROi",
+      artwork: "https://open.voidware.de/track/4OQ20fwtLIgJ6MjVFs1ROi",
+      spotify: "https://open.spotify.com/track/4OQ20fwtLIgJ6MjVFs1ROi",
     },
   ];
 
@@ -188,10 +166,7 @@ function App() {
   const currentContent = topPerformingContent[activeContent];
 
   const reveal = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-    },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -203,10 +178,7 @@ function App() {
   };
 
   const revealSlow = {
-    hidden: {
-      opacity: 0,
-      y: 40,
-    },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
@@ -219,7 +191,7 @@ function App() {
 
   return (
     <div className="site">
-      {/* ==================== NAVBAR ==================== */}
+      {/* NAVBAR */}
       <nav className="navbar">
         <a href="#home" className="nav-logo">
           7arc<span>media</span>
@@ -227,7 +199,7 @@ function App() {
 
         <div className="nav-links">
           <a href="#home">Home</a>
-          <a href="#what-we-do">What We Do</a>
+          <a href="#built-around-the-music">Our Story</a>
           <a href="#campaigns">Work</a>
           <a href="#songs">Songs</a>
           <a href="#process">Process</a>
@@ -244,6 +216,7 @@ function App() {
           className="nav-menu"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -261,30 +234,21 @@ function App() {
               </a>
 
               <a
-                href="#what-we-do"
+                href="#built-around-the-music"
                 onClick={() => setMenuOpen(false)}
               >
-                What We Do
+                Our Story
               </a>
 
-              <a
-                href="#campaigns"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#campaigns" onClick={() => setMenuOpen(false)}>
                 Work
               </a>
 
-              <a
-                href="#songs"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#songs" onClick={() => setMenuOpen(false)}>
                 Songs
               </a>
 
-              <a
-                href="#process"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#process" onClick={() => setMenuOpen(false)}>
                 Process
               </a>
 
@@ -295,10 +259,7 @@ function App() {
                 Why Work With Us
               </a>
 
-              <a
-                href="#contact"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#contact" onClick={() => setMenuOpen(false)}>
                 Contact
               </a>
 
@@ -314,7 +275,7 @@ function App() {
         </AnimatePresence>
       </nav>
 
-      {/* ==================== HERO ==================== */}
+      {/* HERO */}
       <section id="home" className="hero">
         <div className="hero-content">
           <motion.div
@@ -333,14 +294,15 @@ function App() {
             </motion.div>
 
             <motion.h1 variants={reveal}>
-              TikTok campaigns
+              Get Your Music
               <br />
-              <span>built around your release.</span>
+              <span>Heard.</span>
             </motion.h1>
 
             <motion.p className="hero-description" variants={reveal}>
-              We help labels promote their music through TikTok campaigns
-              with relevant editors and IRL creators.
+              We help labels and artists boost their releases through
+              relevant TikTok editors and IRL creators across multiple
+              content niches.
             </motion.p>
 
             <motion.div className="hero-actions" variants={reveal}>
@@ -378,50 +340,61 @@ function App() {
         </div>
       </section>
 
-      {/* ==================== WHAT WE DO ==================== */}
-      <section id="what-we-do" className="what-section">
-        <div className="what-inner">
-          <div className="what-top">
-            <motion.div
-              className="what-heading"
+      {/* BRAND STORY */}
+      <section
+        id="built-around-the-music"
+        className="brand-story-section"
+      >
+        <div className="brand-story-inner">
+          <div className="brand-story-main">
+            <motion.h2
+              className="brand-story-headline"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              variants={reveal}
+              variants={revealSlow}
             >
-              <div className="section-label">
-                What We Do
-              </div>
-
-              <h2>
-                TikTok music campaigns.
-                <br />
-                <span>Built around your release.</span>
-              </h2>
-            </motion.div>
+              Built for Music That Deserves Attention.
+            </motion.h2>
 
             <motion.div
-              className="what-copy"
+              className="brand-story-copy"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={reveal}
             >
               <p>
-                We help labels and artists build momentum around their
-                releases through relevant TikTok editors and IRL creators.
-                From creator selection to campaign management and performance
-                tracking, we bring the right people and content together to
-                get your music heard.
+                A track can be great and still go unnoticed. Sometimes, it
+                just hasn't found its way into the right videos, creators,
+                and communities.
               </p>
 
-              <div className="what-line" />
+              <p>
+                That's where 7arcmedia comes in. We work with labels and
+                artists to get their releases into the hands of TikTok
+                editors and creators whose content fits the music.
+              </p>
             </motion.div>
           </div>
+
+          <motion.div
+            className="brand-story-closing"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={revealSlow}
+          >
+            <span className="brand-story-closing-mark">“</span>
+            <p>
+              Just the right music, the right creators, and a plan built
+              around the release.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* ==================== TOP PERFORMING CONTENT ==================== */}
+      {/* TOP PERFORMING CONTENT */}
       <motion.section
         id="campaigns"
         className="top-content-section"
@@ -550,7 +523,7 @@ function App() {
         </div>
       </motion.section>
 
-      {/* ==================== SONGS WE'VE WORKED ON ==================== */}
+      {/* SONGS WE'VE WORKED ON */}
       <section id="songs" className="songs-section">
         <div className="songs-inner">
           <motion.div
@@ -648,7 +621,7 @@ function App() {
         </div>
       </section>
 
-      {/* ==================== PROCESS ==================== */}
+      {/* PROCESS */}
       <section id="process" className="process-section">
         <div className="process-inner">
           <motion.div
@@ -658,9 +631,7 @@ function App() {
             viewport={{ once: true, amount: 0.2 }}
             variants={reveal}
           >
-            <div className="section-label">
-              Process
-            </div>
+            <div className="section-label">Process</div>
 
             <h2>
               From release
@@ -678,7 +649,6 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">01</span>
-
               <div>
                 <h3>Understand</h3>
                 <p>
@@ -695,7 +665,6 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">02</span>
-
               <div>
                 <h3>Select</h3>
                 <p>
@@ -712,11 +681,11 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">03</span>
-
               <div>
                 <h3>Execute</h3>
                 <p>
-                  We coordinate your campaign across selected creators and pages.
+                  We coordinate your campaign across selected creators and
+                  pages.
                 </p>
               </div>
             </motion.div>
@@ -729,7 +698,6 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">04</span>
-
               <div>
                 <h3>Report</h3>
                 <p>
@@ -741,10 +709,10 @@ function App() {
         </div>
       </section>
 
-      {/* ==================== WHY WORK WITH US ==================== */}
+      {/* WHY WORK WITH US */}
       <WhyWorkWithUs />
 
-      {/* ==================== CONTACT / FOOTER ==================== */}
+      {/* CONTACT / FOOTER */}
       <footer id="contact" className="footer-section">
         <div className="footer-inner">
           <motion.div
@@ -754,9 +722,7 @@ function App() {
             viewport={{ once: true, amount: 0.2 }}
             variants={reveal}
           >
-            <div className="section-label">
-              Contact
-            </div>
+            <div className="section-label">Contact</div>
 
             <h2>
               Have a release
