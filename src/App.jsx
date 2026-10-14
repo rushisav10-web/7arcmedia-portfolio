@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -319,10 +318,12 @@ function App() {
             <span>Campaigns</span>
             <strong>Built for TikTok</strong>
           </div>
+
           <div className="hero-card hero-card-two">
             <span>Creators</span>
             <strong>Selected for your release</strong>
           </div>
+
           <div className="hero-card hero-card-three">
             <span>Distribution</span>
             <strong>Managed from start to finish</strong>
@@ -508,8 +509,7 @@ function App() {
           </motion.div>
         </div>
       </motion.section>
-
-      {/* SONGS WE'VE WORKED ON */}
+            {/* SONGS WE'VE WORKED ON */}
       <section id="songs" className="songs-section">
         <div className="songs-inner">
           <motion.div
@@ -630,7 +630,7 @@ function App() {
             >
               <span className="process-number">01</span>
               <div>
-                <h3>Understand</h3>
+                <h3>UNDERSTAND</h3>
                 <p>
                   We learn about your release, audience, and campaign goals.
                 </p>
@@ -646,9 +646,10 @@ function App() {
             >
               <span className="process-number">02</span>
               <div>
-                <h3>Select</h3>
+                <h3>STRATEGIZE</h3>
                 <p>
-                  We identify relevant creators and editors for your release.
+                  We develop a campaign strategy around your release,
+                  audience, and distribution goals.
                 </p>
               </div>
             </motion.div>
@@ -662,10 +663,10 @@ function App() {
             >
               <span className="process-number">03</span>
               <div>
-                <h3>Execute</h3>
+                <h3>EXECUTE</h3>
                 <p>
-                  We coordinate your campaign across selected creators and
-                  pages.
+                  We coordinate distribution across selected creators and
+                  pages, based on your campaign approach.
                 </p>
               </div>
             </motion.div>
@@ -679,9 +680,10 @@ function App() {
             >
               <span className="process-number">04</span>
               <div>
-                <h3>Report</h3>
+                <h3>REPORT</h3>
                 <p>
-                  You receive a clear overview of your campaign's performance.
+                  You receive a clear overview of your campaign's reach and
+                  performance.
                 </p>
               </div>
             </motion.div>
