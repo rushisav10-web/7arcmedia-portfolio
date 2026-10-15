@@ -197,7 +197,6 @@ function App() {
 
         <div className="nav-links">
           <a href="#home">Home</a>
-          <a href="#built-around-the-music">Our Story</a>
           <a href="#campaigns">Work</a>
           <a href="#songs">Songs</a>
           <a href="#process">Process</a>
@@ -230,30 +229,30 @@ function App() {
               <a href="#home" onClick={() => setMenuOpen(false)}>
                 Home
               </a>
-              <a
-                href="#built-around-the-music"
-                onClick={() => setMenuOpen(false)}
-              >
-                Our Story
-              </a>
+
               <a href="#campaigns" onClick={() => setMenuOpen(false)}>
                 Work
               </a>
+
               <a href="#songs" onClick={() => setMenuOpen(false)}>
                 Songs
               </a>
+
               <a href="#process" onClick={() => setMenuOpen(false)}>
                 Process
               </a>
+
               <a
                 href="#why-work-with-us"
                 onClick={() => setMenuOpen(false)}
               >
                 Why Work With Us
               </a>
+
               <a href="#contact" onClick={() => setMenuOpen(false)}>
                 Contact
               </a>
+
               <a
                 href="#contact"
                 className="mobile-cta"
@@ -285,15 +284,16 @@ function App() {
             </motion.div>
 
             <motion.h1 variants={reveal}>
-              Get Your <span className="hero-mobile-break">Music</span>
-              <br className="hero-desktop-break" />
-              <span>Heard.</span>
+              Connecting
+              <br />
+              Music With
+              <br />
+              <span>Culture.</span>
             </motion.h1>
 
             <motion.p className="hero-description" variants={reveal}>
-              We help labels and artists boost their releases through
-              relevant TikTok editors and IRL creators across multiple
-              content niches.
+              We help labels and artists connect their releases with the
+              right TikTok creators and editors.
             </motion.p>
 
             <motion.div className="hero-actions" variants={reveal}>
@@ -309,6 +309,7 @@ function App() {
           </motion.div>
         </div>
 
+        {/* WORLD ANIMATION */}
         <div className="hero-visual">
           <div className="hero-orbit" />
           <div className="hero-orbit-two" />
@@ -331,59 +332,6 @@ function App() {
         </div>
       </section>
 
-      {/* BRAND STORY */}
-      <section
-        id="built-around-the-music"
-        className="brand-story-section"
-      >
-        <div className="brand-story-inner">
-          <div className="brand-story-main">
-            <motion.h2
-              className="brand-story-headline"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={revealSlow}
-            >
-              Built for Music That Deserves Attention.
-            </motion.h2>
-
-            <motion.div
-              className="brand-story-copy"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={reveal}
-            >
-              <p>
-                A track can be great and still go unnoticed. Sometimes, it
-                just hasn't found its way into the right videos, creators,
-                and communities.
-              </p>
-              <p>
-                That's where 7arcmedia comes in. We work with labels and
-                artists to get their releases into the hands of TikTok
-                editors and creators whose content fits the music.
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="brand-story-closing"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
-            variants={revealSlow}
-          >
-            <span className="brand-story-closing-mark">“</span>
-            <p>
-              Just the right music, the right creators, and a plan built
-              around the release.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* TOP PERFORMING CONTENT */}
       <motion.section
         id="campaigns"
@@ -399,6 +347,7 @@ function App() {
               <div className="section-label">
                 Top Performing Content
               </div>
+
               <h2>
                 Content built to
                 <br />
@@ -445,6 +394,7 @@ function App() {
                     <span className="top-content-label">
                       Top Performing Content
                     </span>
+
                     <span className="top-content-views">
                       {currentContent.views}
                     </span>
@@ -459,6 +409,7 @@ function App() {
               >
                 <ChevronLeft size={24} />
               </button>
+
               <button
                 className="top-content-arrow top-content-arrow-right"
                 onClick={nextContent}
@@ -509,7 +460,8 @@ function App() {
           </motion.div>
         </div>
       </motion.section>
-            {/* SONGS WE'VE WORKED ON */}
+
+      {/* SONGS WE'VE WORKED ON */}
       <section id="songs" className="songs-section">
         <div className="songs-inner">
           <motion.div
@@ -523,11 +475,13 @@ function App() {
               <div className="section-label">
                 Songs We've Worked On
               </div>
+
               <h2>
                 Releases we've
                 <br />
                 <span>helped build momentum around.</span>
               </h2>
+
               <p className="songs-description">
                 A selection of releases we've supported through our music
                 campaigns.
@@ -543,6 +497,7 @@ function App() {
               >
                 <ChevronLeft size={22} />
               </button>
+
               <button
                 type="button"
                 className="songs-arrow"
@@ -577,11 +532,13 @@ function App() {
                   <h3 className="song-title" title={song.title}>
                     {song.title}
                   </h3>
+
                   {song.artist && (
                     <p className="song-artist" title={song.artist}>
                       {song.artist}
                     </p>
                   )}
+
                   <a
                     className="song-spotify-link"
                     href={song.spotify}
@@ -613,6 +570,7 @@ function App() {
             variants={reveal}
           >
             <div className="section-label">Process</div>
+
             <h2>
               From release
               <br />
@@ -629,6 +587,7 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">01</span>
+
               <div>
                 <h3>UNDERSTAND</h3>
                 <p>
@@ -645,6 +604,7 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">02</span>
+
               <div>
                 <h3>STRATEGIZE</h3>
                 <p>
@@ -662,6 +622,7 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">03</span>
+
               <div>
                 <h3>EXECUTE</h3>
                 <p>
@@ -679,6 +640,7 @@ function App() {
               variants={reveal}
             >
               <span className="process-number">04</span>
+
               <div>
                 <h3>REPORT</h3>
                 <p>
@@ -691,6 +653,7 @@ function App() {
         </div>
       </section>
 
+      {/* WHY WORK WITH US */}
       <WhyWorkWithUs />
 
       {/* CONTACT / FOOTER */}
@@ -704,14 +667,17 @@ function App() {
             variants={reveal}
           >
             <div className="section-label">Contact</div>
+
             <h2>
               Have a release
               <br />
               <span>to promote?</span>
             </h2>
+
             <p>
               Tell us about your release and campaign requirements.
             </p>
+
             <a
               href="https://www.instagram.com/7arcmedia/"
               target="_blank"
@@ -727,6 +693,7 @@ function App() {
             <div className="footer-logo">
               7arc<span>media</span>
             </div>
+
             <p>
               © {new Date().getFullYear()} 7arcmedia. All rights reserved.
             </p>

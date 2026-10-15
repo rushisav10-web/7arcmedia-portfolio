@@ -1,110 +1,110 @@
+
 import { motion } from "framer-motion";
-import {
-  ShieldCheck,
-  Clock3,
-  Users,
-  Music2,
-  Target,
-} from "lucide-react";
-import "./WhyWorkWithUs.css";
+import "./Why.css";
 
 const features = [
   {
     number: "01",
-    title: "Reliable Campaign Management",
+    title: "A Strategy for Every Release",
     description:
-      "We coordinate placements and review submitted content to help keep your campaign organized and on track.",
-    icon: ShieldCheck,
+      "Every release is different. We develop a strategy that fits each track's sound, audience and potential.",
   },
   {
     number: "02",
-    title: "Deadline-Focused Execution",
+    title: "Relevant Creators & Editors",
     description:
-      "We coordinate campaign delivery around agreed timelines and keep you informed of progress.",
-    icon: Clock3,
+      "We focus on creators and editors whose content aligns with your music and target audience.",
   },
   {
     number: "03",
-    title: "Relevant Creators & Editors",
+    title: "Reliable Campaign Management",
     description:
-      "We work with creators and editors whose content fits your music, audience and campaign goals.",
-    icon: Users,
+      "We coordinate campaign activities, manage delivery and keep things moving according to agreed timelines.",
   },
   {
     number: "04",
-    title: "Accurate Sound Usage",
-    description:
-      "We check that campaign content uses your specified track or sound as required.",
-    icon: Music2,
-  },
-  {
-    number: "05",
     title: "Performance Tracking",
     description:
-      "We track campaign results and provide a clear overview of content performance.",
-    icon: Target,
+      "We monitor campaign results and provide a clear overview of content performance.",
   },
 ];
 
-export default function WhyWorkWithUs() {
+const reveal = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+function WhyWorkWithUs() {
   return (
-    <section className="why-work" id="why-work-with-us">
-      <div className="why-work-container">
-        <motion.div
-          className="why-work-heading"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="why-work-eyebrow">
-            WHY WORK WITH US
-          </span>
+    <section
+      id="why-work-with-us"
+      className="why-section"
+      aria-labelledby="why-heading"
+    >
+      <div className="why-inner">
+        <div className="why-header">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={reveal}
+          >
+            <div className="section-label">Why Work With Us</div>
 
-          <h2>
-            Your Campaign, <span>Handled.</span>
-          </h2>
+            <h2 id="why-heading">
+              Your Campaign,
+              <br />
+              <span>Handled.</span>
+            </h2>
+          </motion.div>
 
-          <p>
-            We manage the details behind your TikTok music campaign,
-            so you can focus on your next release.
-          </p>
-        </motion.div>
-
-        <div className="why-work-grid">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-
-            return (
-              <motion.article
-                className="why-work-card"
-                key={feature.number}
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{
-                  duration: 0.45,
-                  delay: index * 0.08,
-                }}
-              >
-                <div className="why-work-card-top">
-                  <span className="why-work-number">
-                    {feature.number}
-                  </span>
-
-                  <div className="why-work-icon">
-                    <Icon size={21} strokeWidth={1.6} />
-                  </div>
-                </div>
-
-                <h3>{feature.title}</h3>
-
-                <p>{feature.description}</p>
-              </motion.article>
-            );
-          })}
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={reveal}
+          >
+            We help labels and artists build momentum around their
+            releases on TikTok, managing the details from planning
+            to performance tracking.
+          </motion.p>
         </div>
+
+        <motion.div
+          className="why-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={stagger}
+        >
+          {features.map((feature) => (
+            <motion.div
+              className="why-card"
+              key={feature.number}
+              variants={reveal}
+            >
+              <span className="why-number">{feature.number}</span>
+
+              <h3>{feature.title}</h3>
+
+              <p>{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
 }
+
+export default WhyWorkWithUs;
