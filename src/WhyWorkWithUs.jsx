@@ -34,7 +34,10 @@ const reveal = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
 };
 
@@ -60,7 +63,9 @@ function WhyWorkWithUs() {
             viewport={{ once: true, amount: 0.2 }}
             variants={reveal}
           >
-            <div className="section-label">Why Work With Us</div>
+            <div className="section-label">
+              Why Work With Us
+            </div>
 
             <h2 id="why-heading">
               Your Campaign,
@@ -75,9 +80,9 @@ function WhyWorkWithUs() {
             viewport={{ once: true, amount: 0.2 }}
             variants={reveal}
           >
-            We help labels and artists build momentum around their
-            releases on TikTok, managing the details from planning
-            to performance tracking.
+            We connect your music with relevant TikTok communities
+            through creators and editors who understand the content
+            their audiences engage with.
           </motion.p>
         </div>
 
@@ -94,7 +99,9 @@ function WhyWorkWithUs() {
               key={feature.number}
               variants={reveal}
             >
-              <span className="why-number">{feature.number}</span>
+              <span className="why-number">
+                {feature.number}
+              </span>
 
               <h3>{feature.title}</h3>
 
