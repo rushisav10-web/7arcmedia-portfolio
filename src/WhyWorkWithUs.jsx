@@ -5,24 +5,30 @@ import "./Why.css";
 const features = [
   {
     number: "01",
+    title: "Full Transparency",
+    description:
+      "Clear campaign costs, budget visibility and straightforward reporting, so you know what your campaign covers and how it is progressing.",
+  },
+  {
+    number: "02",
     title: "A Strategy for Every Release",
     description:
       "Every release is different. We develop a strategy that fits each track's sound, audience and potential.",
   },
   {
-    number: "02",
+    number: "03",
     title: "Relevant Creators & Editors",
     description:
       "We focus on creators and editors whose content aligns with your music and target audience.",
   },
   {
-    number: "03",
+    number: "04",
     title: "Reliable Campaign Management",
     description:
       "We coordinate campaign activities, manage delivery and keep things moving according to agreed timelines.",
   },
   {
-    number: "04",
+    number: "05",
     title: "Performance Tracking",
     description:
       "We monitor campaign results and provide a clear overview of content performance.",
