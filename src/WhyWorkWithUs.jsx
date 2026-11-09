@@ -5,33 +5,33 @@ import "./Why.css";
 const features = [
   {
     number: "01",
-    title: "Full Transparency",
+    title: "Genre Understanding",
     description:
-      "Clear campaign costs, budget visibility and straightforward reporting, so you know what your campaign covers and how it is progressing.",
+      "We understand different music genres and the communities around them, helping us find the right direction for every release.",
   },
   {
     number: "02",
-    title: "A Strategy for Every Release",
+    title: "Carefully Selected Creators",
     description:
-      "Every release is different. We develop a strategy that fits each track's sound, audience and potential.",
+      "We select creators and editors based on their content, style and audience rather than simply focusing on numbers.",
   },
   {
     number: "03",
-    title: "Relevant Creators & Editors",
+    title: "Targeted Campaigns",
     description:
-      "We focus on creators and editors whose content aligns with your music and target audience.",
+      "Every campaign is planned around your track, connecting it with creators and communities that naturally fit the sound.",
   },
   {
     number: "04",
-    title: "Reliable Campaign Management",
+    title: "A Network Built Around Music",
     description:
-      "We coordinate campaign activities, manage delivery and keep things moving according to agreed timelines.",
+      "We work with a growing network of music editors and creators across different genres and content communities.",
   },
   {
     number: "05",
-    title: "Performance Tracking",
+    title: "Campaign Tracking",
     description:
-      "We monitor campaign results and provide a clear overview of content performance.",
+      "We keep track of published content and campaign performance, giving you a clear view of how your release is progressing.",
   },
 ];
 
@@ -86,9 +86,9 @@ function WhyWorkWithUs() {
             viewport={{ once: true, amount: 0.2 }}
             variants={reveal}
           >
-            We connect your music with relevant TikTok communities
-            through creators and editors who understand the content
-            their audiences engage with.
+            We bring music, creators and communities together
+            through carefully planned campaigns built around
+            the sound and audience of each release.
           </motion.p>
         </div>
 

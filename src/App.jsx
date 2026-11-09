@@ -5,9 +5,8 @@ import {
   ArrowUpRight,
   Menu,
   X,
-  Layers,
-  Eye,
   Target,
+  Layers,
 } from "lucide-react";
 
 import "./App.css";
@@ -15,7 +14,6 @@ import "./Navbar.css";
 import "./Hero.css";
 import "./WhatWeDo.css";
 import "./BrandStory.css";
-import "./Campaigns.css";
 import "./Results.css";
 import "./Process.css";
 import "./Why.css";
@@ -24,6 +22,7 @@ import "./Footer.css";
 import "./Pricing.css";
 
 import WhyWorkWithUs from "./WhyWorkWithUs";
+import Campaigns from "./Campaigns";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,35 +39,57 @@ function App() {
     },
   };
 
-  const services = [
+  const campaigns = [
     {
       number: "01",
-      title: "Targeted Seeding",
+      title: "Fan Edit Campaigns",
       description:
-        "We match each release with relevant TikTok editors and niche communities based on the track's sound, audience and potential.",
-      icon: Target,
-      tags: ["Relevant TikTok Editors", "Niche Communities"],
+        "We connect your music with fan editors who create content around characters, shows, games, artists and communities that fit your sound.",
+      icon: Layers,
     },
     {
       number: "02",
-      title: "Paid Per 1K Views",
+      title: "Creator Campaigns",
       description:
-        "We match your track with relevant TikTok editors whose content fits the sound, helping your music reach the right communities. You pay based on the views generated, with pricing calculated per 1,000 views.",
-      icon: Eye,
-      tags: ["Relevant TikTok Editors", "Pay Per 1K Views"],
+        "We match your music with creators in its genre, selecting them based on their content style, audience and the music they share.",
+      icon: Target,
+    },
+  ];
+
+  const processSteps = [
+    {
+      number: "01",
+      title: "BRIEF",
+      subtitle: "Understanding your release",
+      description:
+        "Tell us about your track, release date, goals and target audience. We use these details to shape your campaign.",
+    },
+    {
+      number: "02",
+      title: "MATCH",
+      subtitle: "Finding the right creators",
+      description:
+        "We identify creators and editors whose content, style and communities fit your music.",
     },
     {
       number: "03",
-      title: "Content Distribution",
+      title: "LAUNCH",
+      subtitle: "Getting your campaign live",
       description:
-        "High volume, consistent content distribution across TikTok and Instagram, using relevant editors and pages to get your music in front of the right audiences.",
-      icon: Layers,
-      tags: ["Daily Content", "Multi Page Strategy"],
+        "We coordinate the selected creators, manage content delivery and get your campaign moving.",
+    },
+    {
+      number: "04",
+      title: "TRACK",
+      subtitle: "Following campaign progress",
+      description:
+        "We monitor published content, track views and share updates so you can follow your campaign's progress.",
     },
   ];
 
   return (
     <div className="site">
+      {/* Navbar */}
       <nav className="navbar">
         <a href="#home" className="nav-logo">
           7arc<span>media</span>
@@ -78,6 +99,7 @@ function App() {
           <a href="#home">Home</a>
           <a href="#what-we-do">What We Do</a>
           <a href="#process">Process</a>
+          <a href="#selected-work">Selected Releases</a>
           <a href="#why-work-with-us">Why Work With Us</a>
           <a href="#contact">Contact</a>
         </div>
@@ -104,7 +126,10 @@ function App() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
             >
-              <a href="#home" onClick={() => setMenuOpen(false)}>
+              <a
+                href="#home"
+                onClick={() => setMenuOpen(false)}
+              >
                 Home
               </a>
 
@@ -120,6 +145,13 @@ function App() {
                 onClick={() => setMenuOpen(false)}
               >
                 Process
+              </a>
+
+              <a
+                href="#selected-work"
+                onClick={() => setMenuOpen(false)}
+              >
+                Selected Releases
               </a>
 
               <a
@@ -148,6 +180,7 @@ function App() {
         </AnimatePresence>
       </nav>
 
+      {/* Hero */}
       <section id="home" className="hero">
         <div className="hero-content">
           <motion.div
@@ -161,17 +194,6 @@ function App() {
               },
             }}
           >
-            <motion.div className="hero-eyebrow" variants={reveal}>
-              TikTok Music Marketing
-            </motion.div>
-
-            <motion.div
-              className="hero-transparency-label"
-              variants={reveal}
-            >
-              FULL TRANSPARENCY
-            </motion.div>
-
             <motion.h1 variants={reveal}>
               Connecting
               <br />
@@ -184,9 +206,11 @@ function App() {
               className="hero-description"
               variants={reveal}
             >
-              We help labels and artists connect their music with
-              the right communities on TikTok, with the goal of
-              turning views into streams.
+              7arcmedia is a music marketing agency focused on
+              connecting songs with the right creators and
+              communities. We work with record labels to build
+              targeted campaigns that help music reach the right
+              audiences.
             </motion.p>
 
             <motion.div
@@ -227,35 +251,35 @@ function App() {
         </div>
       </section>
 
+      {/* Campaign Types */}
       <section id="what-we-do" className="what-we-do-section">
         <div className="what-we-do-inner">
           <motion.div
-            className="what-we-do-heading"
+            className="campaign-section-heading"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={reveal}
           >
-            <div className="section-label">Our Services</div>
-
             <h2>
-              What We <span>Do.</span>
+              Music Campaigns Built Around{" "}
+              <span>Your Sound.</span>
             </h2>
 
             <p>
-              Music marketing solutions built around your releases,
-              campaign goals, and target audiences.
+              Two ways to connect your music with creators,
+              editors and communities that fit your release.
             </p>
           </motion.div>
 
-          <div className="services-grid">
-            {services.map((service, index) => {
-              const ServiceIcon = service.icon;
+          <div className="services-grid campaign-types-grid">
+            {campaigns.map((campaign, index) => {
+              const CampaignIcon = campaign.icon;
 
               return (
                 <motion.article
-                  className="service-card"
-                  key={service.number}
+                  className="service-card campaign-type-card"
+                  key={campaign.number}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.15 }}
@@ -264,138 +288,157 @@ function App() {
                 >
                   <div className="service-card-top">
                     <span className="service-number">
-                      {service.number}
+                      {campaign.number}
                     </span>
 
                     <div className="service-icon">
-                      <ServiceIcon size={23} strokeWidth={1.7} />
+                      <CampaignIcon
+                        size={23}
+                        strokeWidth={1.7}
+                      />
                     </div>
                   </div>
 
-                  <h3>{service.title}</h3>
+                  <h3>{campaign.title}</h3>
 
-                  <p>{service.description}</p>
-
-                  <div className="service-tags">
-                    {service.tags.map((tag) => (
-                      <span className="service-tag" key={tag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href="#contact"
-                    className="service-link"
-                    aria-label={`Enquire about ${service.title}`}
-                  >
-                    Discuss this service
-                    <ArrowUpRight size={17} />
-                  </a>
+                  <p>{campaign.description}</p>
                 </motion.article>
               );
             })}
           </div>
+
+          {/* Shared Platform Labels */}
+          <motion.div
+            className="campaign-platforms"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={reveal}
+          >
+            <span className="platforms-label">
+              CAMPAIGNS ACROSS
+            </span>
+
+            <div className="platforms-list">
+              {["TikTok", "Instagram", "YouTube"].map(
+                (platform) => (
+                  <span className="service-tag" key={platform}>
+                    {platform}
+                  </span>
+                )
+              )}
+            </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* Brand Statement */}
+      <motion.section
+        className="brand-statement"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={reveal}
+      >
+        <div className="brand-statement-inner">
+          <span className="brand-statement-line" />
+
+          <h2>
+            Every sound has its audience.
+            <br />
+            <span>We help it find them.</span>
+          </h2>
+
+          <span className="brand-statement-line" />
+        </div>
+      </motion.section>
+
+      {/* Process */}
       <section id="process" className="process-section">
         <div className="process-inner">
           <motion.div
-            className="section-heading"
+            className="process-heading"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={reveal}
           >
-            <div className="section-label">Process</div>
+            <div className="section-label">HOW IT WORKS</div>
 
             <h2>
-              Strategy to
+              From Brief to
               <br />
-              <span>Execution.</span>
+              <span>Campaign Launch.</span>
             </h2>
+
+            <p>
+              A clear process to get your music in front of
+              the right creators and communities.
+            </p>
           </motion.div>
 
           <div className="process-list">
-            <motion.div
-              className="process-item"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={reveal}
-            >
-              <span className="process-number">01</span>
+            {processSteps.map((step, index) => (
+              <motion.article
+                className="process-item"
+                key={step.number}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={reveal}
+                transition={{ delay: index * 0.12 }}
+              >
+                <div className="process-card-glow" />
 
-              <div>
-                <h3>UNDERSTAND</h3>
-                <p>
-                  We learn about your release, audience, and
-                  campaign goals.
-                </p>
-              </div>
-            </motion.div>
+                <div className="process-top">
+                  <span className="process-number">
+                    {step.number}
+                  </span>
 
-            <motion.div
-              className="process-item"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={reveal}
-            >
-              <span className="process-number">02</span>
+                  <span className="process-stage">
+                    STAGE {step.number}
+                  </span>
+                </div>
 
-              <div>
-                <h3>STRATEGIZE</h3>
-                <p>
-                  We develop a campaign strategy around your
-                  release, audience, and distribution goals.
-                </p>
-              </div>
-            </motion.div>
+                <div className="process-content">
+                  <h3>{step.title}</h3>
 
-            <motion.div
-              className="process-item"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={reveal}
-            >
-              <span className="process-number">03</span>
+                  <h4>{step.subtitle}</h4>
 
-              <div>
-                <h3>EXECUTE</h3>
-                <p>
-                  We work with relevant editors and creators to
-                  get your music featured in content that fits
-                  your sound and target audience.
-                </p>
-              </div>
-            </motion.div>
+                  <p>{step.description}</p>
+                </div>
 
-            <motion.div
-              className="process-item"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={reveal}
-            >
-              <span className="process-number">04</span>
-
-              <div>
-                <h3>REPORT</h3>
-                <p>
-                  You receive a clear overview of your campaign's
-                  reach and performance.
-                </p>
-              </div>
-            </motion.div>
+                <div className="process-card-bottom">
+                  <span>7ARCMEDIA</span>
+                  <span className="process-bottom-line" />
+                </div>
+              </motion.article>
+            ))}
           </div>
+
+          <motion.div
+            className="process-footer"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={reveal}
+          >
+            <span className="process-footer-dot" />
+
+            <p>
+              Every release gets a campaign built around its sound.
+            </p>
+          </motion.div>
         </div>
       </section>
 
+      {/* Selected Releases */}
+      <Campaigns />
+
+      {/* Why Work With Us */}
       <WhyWorkWithUs />
 
+      {/* Contact */}
       <footer id="contact" className="footer-section">
         <div className="footer-inner">
           <motion.div
