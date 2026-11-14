@@ -15,7 +15,6 @@ import "./Hero.css";
 import "./WhatWeDo.css";
 import "./BrandStory.css";
 import "./Results.css";
-import "./Process.css";
 import "./Why.css";
 import "./Network.css";
 import "./Footer.css";
@@ -23,21 +22,22 @@ import "./Pricing.css";
 
 import WhyWorkWithUs from "./WhyWorkWithUs";
 import Campaigns from "./Campaigns";
+import Process from "./Process";
+
+const reveal = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const reveal = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
 
   const campaigns = [
     {
@@ -53,37 +53,6 @@ function App() {
       description:
         "We match your music with creators in its genre, selecting them based on their content style, audience and the music they share.",
       icon: Target,
-    },
-  ];
-
-  const processSteps = [
-    {
-      number: "01",
-      title: "BRIEF",
-      subtitle: "Understanding your release",
-      description:
-        "Tell us about your track, release date, goals and target audience. We use these details to shape your campaign.",
-    },
-    {
-      number: "02",
-      title: "MATCH",
-      subtitle: "Finding the right creators",
-      description:
-        "We identify creators and editors whose content, style and communities fit your music.",
-    },
-    {
-      number: "03",
-      title: "LAUNCH",
-      subtitle: "Getting your campaign live",
-      description:
-        "We coordinate the selected creators, manage content delivery and get your campaign moving.",
-    },
-    {
-      number: "04",
-      title: "TRACK",
-      subtitle: "Following campaign progress",
-      description:
-        "We monitor published content, track views and share updates so you can follow your campaign's progress.",
     },
   ];
 
@@ -126,31 +95,19 @@ function App() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
             >
-              <a
-                href="#home"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#home" onClick={() => setMenuOpen(false)}>
                 Home
               </a>
 
-              <a
-                href="#what-we-do"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#what-we-do" onClick={() => setMenuOpen(false)}>
                 What We Do
               </a>
 
-              <a
-                href="#process"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#process" onClick={() => setMenuOpen(false)}>
                 Process
               </a>
 
-              <a
-                href="#selected-work"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#selected-work" onClick={() => setMenuOpen(false)}>
                 Selected Releases
               </a>
 
@@ -161,10 +118,7 @@ function App() {
                 Why Work With Us
               </a>
 
-              <a
-                href="#contact"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#contact" onClick={() => setMenuOpen(false)}>
                 Contact
               </a>
 
@@ -292,15 +246,11 @@ function App() {
                     </span>
 
                     <div className="service-icon">
-                      <CampaignIcon
-                        size={23}
-                        strokeWidth={1.7}
-                      />
+                      <CampaignIcon size={23} strokeWidth={1.7} />
                     </div>
                   </div>
 
                   <h3>{campaign.title}</h3>
-
                   <p>{campaign.description}</p>
                 </motion.article>
               );
@@ -320,13 +270,11 @@ function App() {
             </span>
 
             <div className="platforms-list">
-              {["TikTok", "Instagram", "YouTube"].map(
-                (platform) => (
-                  <span className="service-tag" key={platform}>
-                    {platform}
-                  </span>
-                )
-              )}
+              {["TikTok", "Instagram", "YouTube"].map((platform) => (
+                <span className="service-tag" key={platform}>
+                  {platform}
+                </span>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -354,83 +302,7 @@ function App() {
       </motion.section>
 
       {/* Process */}
-      <section id="process" className="process-section">
-        <div className="process-inner">
-          <motion.div
-            className="process-heading"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={reveal}
-          >
-            <div className="section-label">HOW IT WORKS</div>
-
-            <h2>
-              From Brief to
-              <br />
-              <span>Campaign Launch.</span>
-            </h2>
-
-            <p>
-              A clear process to get your music in front of
-              the right creators and communities.
-            </p>
-          </motion.div>
-
-          <div className="process-list">
-            {processSteps.map((step, index) => (
-              <motion.article
-                className="process-item"
-                key={step.number}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={reveal}
-                transition={{ delay: index * 0.12 }}
-              >
-                <div className="process-card-glow" />
-
-                <div className="process-top">
-                  <span className="process-number">
-                    {step.number}
-                  </span>
-
-                  <span className="process-stage">
-                    STAGE {step.number}
-                  </span>
-                </div>
-
-                <div className="process-content">
-                  <h3>{step.title}</h3>
-
-                  <h4>{step.subtitle}</h4>
-
-                  <p>{step.description}</p>
-                </div>
-
-                <div className="process-card-bottom">
-                  <span>7ARCMEDIA</span>
-                  <span className="process-bottom-line" />
-                </div>
-              </motion.article>
-            ))}
-          </div>
-
-          <motion.div
-            className="process-footer"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={reveal}
-          >
-            <span className="process-footer-dot" />
-
-            <p>
-              Every release gets a campaign built around its sound.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <Process />
 
       {/* Selected Releases */}
       <Campaigns />
